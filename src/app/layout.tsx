@@ -41,10 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Google Search Console verification */}
-        <meta name="google-site-verification" content="TSf4SxjXP-834c6fkfHLiUsAkJJNLfi__MYNOMbafHY" />
-      </head>
+      
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
