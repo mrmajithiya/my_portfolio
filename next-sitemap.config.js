@@ -1,8 +1,13 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://ommajithiya.vercel.app/', // Replace with your deployed domain
-  generateRobotsTxt: true,           // Generates robots.txt automatically
-  sitemapSize: 7000,                  // Optional: limits URLs per sitemap
-  changefreq: 'daily',                // Optional
-  priority: 0.7,                      // Optional
+  siteUrl: 'https://ommajithiya.vercel.app/', // Replace with your domain
+  generateRobotsTxt: true,           // Automatically creates robots.txt
+  sitemapSize: 7000,                  // Maximum URLs per sitemap file
+  changefreq: 'weekly',               // Frequency for crawling
+  priority: 0.7,                      // Default priority
+  robotsTxtOptions: {
+    policies: [
+      { userAgent: '*', allow: '/' },   // Allow all bots
+    ],
+  },
 };
