@@ -7,34 +7,46 @@ import Navbar from '@/components/Navbar';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
     try {
       const res = await fetch("/api/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
+
+      const data = await res.json();
       if (res.ok) {
         alert("✅ Email sent!");
-        setFormData({ name: "", email: "", subject: "", message: "" }); // reset
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
       } else {
-        alert("❌ Failed to send email");
+        alert(`Failed to send email: ${data.error || "Unknown error"}`);
       }
     } catch (err) {
       console.error(err);
       alert("❌ Something went wrong");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -287,7 +299,7 @@ export default function Contact() {
                   />
                 </motion.div>
 
-                <motion.button
+                {/* <motion.button
                   type="submit"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -297,6 +309,19 @@ export default function Contact() {
                   className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group"
                 >
                   Send Message
+                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </motion.button> */}
+                <motion.button
+                  type="submit"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.9 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
                   <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               </form>
