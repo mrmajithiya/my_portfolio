@@ -195,7 +195,7 @@ export default function About() {
                   user experience, and staying up-to-date with the latest industry trends.
                 </p>
                 <p>
-                  When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, 
+                  When I&apos;m not coding, you can find me exploring new design trends, contributing to open-source projects, 
                   or sharing my knowledge with the developer community through various forms of content.
                 </p>
               </div>
