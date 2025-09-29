@@ -19,7 +19,7 @@ export default function ThemeToggle() {
     );
   }
 
-  const isDark = theme === 'dark';
+  const isDark = theme === 'light';
 
   return (
     <motion.button
