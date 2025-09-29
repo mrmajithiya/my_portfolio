@@ -9,15 +9,15 @@ export const metadata:Metadata = {
   title: 'Om Majithiya Portfolio',
   description: 'Full-stack developer portfolio using Next.js, React, Tailwind CSS.',
   keywords: ['Portfolio', 'Next.js', 'React', 'Tailwind CSS', 'om majithiya', 'Full-stack Developer'],
-  authors: [{ name: 'Om Majithiya', url: 'https://your-portfolio.com' }],
+  authors: [{ name: 'Om Majithiya', url: 'https://ommajithiya.vercel.app/' }],
   openGraph: {
     title: 'Om Majithiya Portfolio',
     description: 'Full-stack developer portfolio using Next.js, React, Tailwind CSS.',
-    url: 'https://your-portfolio.com',
+    url: 'https://ommajithiya.vercel.app/',
     siteName: 'Om Majithiya Portfolio',
     images: [
       {
-        url: '/opengraph_jiniimage.png',
+        url: '/mr_majithiya.jpg',
         width: 1200,
         height: 630,
       },
@@ -29,7 +29,7 @@ export const metadata:Metadata = {
     card: 'summary_large_image',
     title: 'Om Majithiya Portfolio',
     description: 'Full-stack developer portfolio using Next.js, React, Tailwind CSS.',
-    images: ['/opengraph_jiniimage.png'],
+    images: ['/mr_majithiya.jpg'],
   },
 };
 
