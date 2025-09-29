@@ -14,18 +14,28 @@ export default function Contact() {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    try {
+      const res = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        alert("✅ Email sent!");
+        setFormData({ name: "", email: "", subject: "", message: "" }); // reset
+      } else {
+        alert("❌ Failed to send email");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("❌ Something went wrong");
+    }
   };
 
   const contactInfo = [
@@ -101,7 +111,7 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
           >
-            Have a project in mind or want to collaborate? I&apos;d love to hear from you. 
+            Have a project in mind or want to collaborate? I&apos;d love to hear from you.
             Let&apos;s create something amazing together.
           </motion.p>
         </motion.div>
@@ -119,7 +129,7 @@ export default function Contact() {
                 Get in Touch
               </h2>
               <p className="text-gray-600 dark:text-gray-300 mb-8">
-                I&apos;m always open to discussing new opportunities, creative projects, 
+                I&apos;m always open to discussing new opportunities, creative projects,
                 or just having a friendly chat about technology and design.
               </p>
             </div>
@@ -193,7 +203,7 @@ export default function Contact() {
               <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
                 Send a Message
               </h2>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <motion.div
