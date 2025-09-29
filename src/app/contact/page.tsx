@@ -32,7 +32,7 @@ export default function Contact() {
 
       const data = await res.json();
       if (res.ok) {
-        alert("✅ Email sent!");
+        alert("✅ Email sent! thank you for contact to me.");
         setFormData({
           name: "",
           email: "",
