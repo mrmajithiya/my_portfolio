@@ -70,7 +70,7 @@ export default function Hero() {
         >
           <Sparkles className="w-5 h-5 text-yellow-400 animate-pulse" />
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -149,12 +149,12 @@ export default function Hero() {
           >
             I specialize in creating{' '}
             <span className="font-semibold text-blue-600 dark:text-blue-400">lightning-fast</span>,{' '}
-            <span className="font-semibold text-purple-600 dark:text-purple-400">user-friendly</span> web applications 
+            <span className="font-semibold text-purple-600 dark:text-purple-400">user-friendly</span> web applications
             using modern technologies and best practices.
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.5 }}
@@ -182,6 +182,46 @@ export default function Hero() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                 View My Work
+              </Link>
+            </motion.div>
+          </motion.div> */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.5 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          >
+            {/* Download Resume Button */}
+            <motion.a
+              href="/om_resume.pdf"
+              download
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 overflow-hidden"
+            >
+              {/* Shimmer effect overlay */}
+              <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
+              </div>
+              <span className="relative z-10">Download Resume</span>
+              <ArrowDown className="w-5 h-5 group-hover:translate-y-0.5 transition-transform duration-300 relative z-10" />
+            </motion.a>
+
+            {/* View My Work Button */}
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="group"
+            >
+              <Link
+                href="#projects"
+                className="relative px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-2xl font-semibold hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 overflow-hidden block"
+              >
+                {/* Shimmer effect overlay */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
+                </div>
+                <span className="relative z-10">View My Work</span>
               </Link>
             </motion.div>
           </motion.div>
