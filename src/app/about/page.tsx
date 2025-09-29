@@ -123,7 +123,7 @@ export default function About() {
             className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
             I&apos;m a passionate full-stack developer with a love for creating digital experiences 
-            that are both beautiful and functional. With over 3 years of experience, I specialize 
+            that are both beautiful and functional. With over 7+ month of experience, I specialize 
             in turning ideas into reality through code.
           </motion.p>
         </motion.div>
@@ -161,7 +161,7 @@ export default function About() {
                 </div>
                 <div className="flex items-center text-gray-600 dark:text-gray-300">
                   <Award className="w-5 h-5 mr-3 text-yellow-500" />
-                  <span>5+ Projects Completed</span>
+                  <span>6+ Projects Completed</span>
                 </div>
               </div>
 
@@ -198,44 +198,6 @@ export default function About() {
                   When I&apos;m not coding, you can find me exploring new design trends, contributing to open-source projects, 
                   or sharing my knowledge with the developer community through blog posts and tutorials.
                 </p>
-              </div>
-            </motion.section>
-
-            {/* Skills Section */}
-            <motion.section
-              ref={ref}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white">Skills & Technologies</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    // key={skill.name}
-                    key={`${skill.name}-${index}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center">
-                        <skill.icon className="w-5 h-5 text-blue-500 mr-2" />
-                        <span className="font-semibold text-gray-800 dark:text-white">{skill.name}</span>
-                      </div>
-                      <span className="text-sm text-gray-600 dark:text-gray-300">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-                        transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
-                        className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full"
-                      />
-                    </div>
-                  </motion.div>
-                ))}
               </div>
             </motion.section>
 
@@ -279,6 +241,46 @@ export default function About() {
                 ))}
               </div>
             </motion.section>
+
+            {/* Skills Section */}
+            <motion.section
+              ref={ref}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white">Skills & Technologies</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {skills.map((skill, index) => (
+                  <motion.div
+                    // key={skill.name}
+                    key={`${skill.name}-${index}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center">
+                        <skill.icon className="w-5 h-5 text-blue-500 mr-2" />
+                        <span className="font-semibold text-gray-800 dark:text-white">{skill.name}</span>
+                      </div>
+                      <span className="text-sm text-gray-600 dark:text-gray-300">{skill.level}%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
+                        transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
+                        className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full"
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.section>
+
+            
 
             {/* Passions Section */}
             <motion.section
