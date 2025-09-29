@@ -188,15 +188,15 @@ export default function About() {
                   I was fascinated by how code could bring ideas to life on the screen. Since then, I&apos;ve been 
                   on a continuous learning path, exploring new technologies and best practices.
                 </p>
+                {/* and have extensive experience with <span className="font-semibold text-purple-600 dark:text-purple-400">Next.js</span> */}
                 <p>
-                  I specialize in the <span className="font-semibold text-blue-600 dark:text-blue-400">MERN stack</span> and 
-                  have extensive experience with <span className="font-semibold text-purple-600 dark:text-purple-400">Next.js</span>, 
+                  I specialize in the <span className="font-semibold text-blue-600 dark:text-blue-400">Full stack</span> , 
                   creating performant and scalable applications. I&apos;m passionate about clean code, 
                   user experience, and staying up-to-date with the latest industry trends.
                 </p>
                 <p>
-                  When I&apos;m not coding, you can find me exploring new design trends, contributing to open-source projects, 
-                  or sharing my knowledge with the developer community through blog posts and tutorials.
+                  When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, 
+                  or sharing my knowledge with the developer community through various forms of content.
                 </p>
               </div>
             </motion.section>
