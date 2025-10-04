@@ -277,7 +277,7 @@ const skills2 = [
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white">Skills & Technologies</h2>
+              {/* <h2 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white">Skills & Technologies</h2> */}
               <div className="grid md:grid-cols-2 gap-6">
                 {skills2.map((skill, index) => (
                   <motion.div
