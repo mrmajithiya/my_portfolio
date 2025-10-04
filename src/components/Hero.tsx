@@ -104,10 +104,13 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight dark:text-white/80"
           >
             Hi, I&apos;m{' '}
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent bg-300% animate-gradient">
+            {/* <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent bg-300% animate-gradient">
+              Om Majithiya
+            </span> */}
+            <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400 bg-clip-text text-transparent bg-300% animate-gradient">
               Om Majithiya
             </span>
           </motion.h1>

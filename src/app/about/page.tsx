@@ -13,17 +13,13 @@ export default function About() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   
-  const skills = [
-  // Proficient
+  const skills1 = [
+  
   { name: 'HTML5', level: 90, icon: Code },
   { name: 'CSS3', level: 90, icon: Code },
-  // { name: 'Tailwind CSS', level: 95, icon: Palette },
   { name: 'JavaScript', level: 90, icon: Code },
   { name: 'React.js', level: 90, icon: Code },
   { name: 'Next.js', level: 90, icon: Code },
-  // { name: 'Responsive Design', level: 85, icon: Palette },
-
-  // Familiar
   { name: 'Python', level: 75, icon: Code },
   { name: 'C', level: 70, icon: Code },
   { name: 'C++', level: 70, icon: Code },
@@ -31,30 +27,24 @@ export default function About() {
   { name: 'Java', level: 75, icon: Code },
   { name: 'Kotlin', level: 70, icon: Code },
   { name: 'PHP', level: 70, icon: Code },
+
+];
+
+const skills2 = [
+
   { name: 'TypeScript', level: 85, icon: Code },
   { name: 'MySQL', level: 75, icon: Database },
   { name: 'MongoDB', level: 75, icon: Database },
-  // { name: 'PostgreSQL', level: 75, icon: Database },
   { name: 'Firebase', level: 80, icon: Server },
   { name: 'AI/ML (TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy, OpenCV)', level: 75, icon: Rocket },
   { name: 'Web Scraping (Selenium)', level: 70, icon: Rocket },
-
-//   // Tools & Platforms
-  // { name: 'Git', level: 85, icon: Settings },
   { name: 'GitHub', level: 85, icon: Settings },
-//   { name: 'GitLab', level: 80, icon: Settings },
   { name: 'Docker', level: 75, icon: Settings },
-  // { name: 'Bootstrap', level: 80, icon: Palette },
   { name: 'Node.js', level: 80, icon: Server },
-  // { name: 'Flask', level: 70, icon: Server },
   { name: 'Django', level: 75, icon: Server },
-  // { name: 'Firebase', level: 80, icon: Server },
   { name: 'Android Studio', level: 80, icon: Settings },
   { name: 'React Native', level: 75, icon: Code },
   { name: 'AWS (EC2, S3)', level: 70, icon: Server },
-//   { name: 'Vercel', level: 75, icon: Settings },
-//   { name: 'Netlify', level: 75, icon: Settings },
-//   { name: 'VS Code', level: 90, icon: Settings },
 ];
 
 
@@ -98,7 +88,7 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/20 to-purple-50/10 dark:from-gray-900 dark:via-blue-950/20 dark:to-purple-950/10">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/20 to-purple-50/10 dark:from-gray-900 dark:via-blue-950/50 dark:to-purple-950/10">
       <Navbar />
       <div className="max-w-6xl mx-auto px-6 py-12">
         {/* Hero Section */}
@@ -251,7 +241,45 @@ export default function About() {
             >
               <h2 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white">Skills & Technologies</h2>
               <div className="grid md:grid-cols-2 gap-6">
-                {skills.map((skill, index) => (
+                {skills1.map((skill, index) => (
+                  <motion.div
+                    // key={skill.name}
+                    key={`${skill.name}-${index}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center">
+                        <skill.icon className="w-5 h-5 text-blue-500 mr-2" />
+                        <span className="font-semibold text-gray-800 dark:text-white">{skill.name}</span>
+                      </div>
+                      <span className="text-sm text-gray-600 dark:text-gray-300">{skill.level}%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
+                        transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
+                        className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full"
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.section>
+
+            {/* second part of the skills section */}
+            <motion.section
+              ref={ref}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white">Skills & Technologies</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {skills2.map((skill, index) => (
                   <motion.div
                     // key={skill.name}
                     key={`${skill.name}-${index}`}
