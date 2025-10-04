@@ -13,7 +13,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50/20 to-purple-50/10 dark:from-gray-900 dark:via-blue-950/20 dark:to-purple-950/10">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50/20 to-purple-50/10 dark:from-gray-900 dark:via-blue-950/50 dark:to-purple-950/10">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Animated Gradient Orbs */}
